@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Pacientes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <div th:substituteby="fragments/fragments.html :: header"></div>
+
+    <p th:text="'Hello, ' + ${name} + '!'" />
+
+    <div th:insert="fragments/fragments.html :: footer"></div>
+</body>
+
+</html>
