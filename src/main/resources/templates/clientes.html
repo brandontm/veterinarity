@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Clientes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <div th:substituteby="fragments/fragments.html :: header"></div>
+
+    <form>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="nombre">Nombre</label>
+            <input type="text" class="form-control" id="nombre" placeholder="Ingrese nombre"
+                maxlength="30">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="apellidoPaterno">Apellido paterno</label>
+            <input type="text" class="form-control" id="apellidoPaterno" placeholder="Ingrese apellido paterno"
+                maxlength="20">
+          </div>
+          <div class="form-group col-md-4">
+            <label for="apellidoMaterno">Apellido materno</label>
+            <input type="text" class="form-control" id="apellidoMaterno" placeholder="Ingrese apellido materno"
+                maxlength="20">
+          </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="colonia">Colonia</label>
+              <input type="text" class="form-control" id="colonia" placeholder="Ingrese colonia"
+                  maxlength="20">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="calle">Calle</label>
+              <input type="text" class="form-control" id="calle" placeholder="Ingrese calle"
+                  maxlength="20">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="numeroCasa">Número de casa</label>
+              <input type="number" class="form-control" id="numeroCasa" placeholder="Ingrese número de casa"
+              min="1" max="6">
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-group col-md-4">
+              <label for="telefono">Teléfono</label>
+              <input type="number" class="form-control" id="telefono" placeholder="Ingrese teléfono"
+                  min="1" max="12">
+            </div>
+            <div class="form-group col-md-4">
+              <label for="celular">Celular</label>
+              <input type="number" class="form-control" id="celular" placeholder="Ingrese Celular"
+                  min="1" max="12">
+            </div>
+        </div>
+    </form>
+    <div th:insert="fragments/fragments.html :: footer"></div>
+</body>
+
+</html>
