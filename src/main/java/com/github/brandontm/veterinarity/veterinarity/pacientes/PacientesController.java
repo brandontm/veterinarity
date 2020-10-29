@@ -26,13 +26,16 @@ public class PacientesController {
 
     @GetMapping("/paciente/agregar")
     public String agregarPacienteForm(Model model) {
-        model.addAttribute("pet", new Pet());
+        Pet pet = new Pet();
+        pet.setSex("male");
+        model.addAttribute("pet", pet);
+        
         return "agregar_paciente";
     }
 
     @PostMapping("/paciente/agregar")
     public String agregarPaciente(@ModelAttribute(value = "pet") Pet pet) {
-        List<Pet> pets = (List<Pet>) servletContext.getAttribute("pet");
+        List<Pet> pets = (List<Pet>) servletContext.getAttribute("pets");
         if (pets == null)
             pets = new ArrayList<Pet>();
 
