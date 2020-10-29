@@ -7,10 +7,37 @@ public class Cliente {
     private String apellidoMaterno;
     private String telefono;
     private String celular;
+    private String colonia;
+    private String calle;
+    private short numeroCasa;
     private Integer idDomicilio;
 
     public Integer getId() {
         return id;
+    }
+
+    public short getNumeroCasa() {
+        return numeroCasa;
+    }
+
+    public void setNumeroCasa(short numeroCasa) {
+        this.numeroCasa = numeroCasa;
+    }
+
+    public String getCalle() {
+        return calle;
+    }
+
+    public void setCalle(String calle) {
+        this.calle = calle;
+    }
+
+    public String getColonia() {
+        return colonia;
+    }
+
+    public void setColonia(String colonia) {
+        this.colonia = colonia;
     }
 
     public Integer getIdDomicilio() {
