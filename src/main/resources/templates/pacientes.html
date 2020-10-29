@@ -7,11 +7,13 @@
 </head>
 
 <body>
-    <div th:substituteby="fragments/fragments.html :: header"></div>
+    <div th:replace="@{/fragments/fragments.html} :: header"></div>
 
-    <p th:text="'Hello, ' + ${name} + '!'" />
+    <div class="container">
+        <p th:text="${#servletContext.getAttribute('pets').get(0).name}"></p>
+    </div>
 
-    <div th:insert="fragments/fragments.html :: footer"></div>
+    <div th:replace="@{/fragments/fragments.html} :: footer"></div>
 </body>
 
 </html>
