@@ -23,13 +23,13 @@
                 <label>Sexo</label><br>
 
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" th:field="*{sex}" th:value="male" type="radio"
-                        name="inlineRadioOptions" id="optMale" value="male" th:checked="male">
+                    <input class="form-check-input" th:field="*{sex}" th:value="macho" type="radio"
+                        name="inlineRadioOptions" id="optMale" value="macho">
                     <label class="form-check-label" for="optMale">Macho</label>
                 </div>
                 <div class="form-check form-check-inline">
-                    <input class="form-check-input" th:field="*{sex}" th:value="female" type="radio"
-                        name="inlineRadioOptions" id="optFemale" value="female">
+                    <input class="form-check-input" th:field="*{sex}" th:value="hembra" type="radio"
+                        name="inlineRadioOptions" id="optFemale" value="hembra">
                     <label class="form-check-label" for="optFemale">Hembra</label>
                 </div>
             </div>
@@ -44,6 +44,14 @@
                 <label for="inputBreed">Raza</label>
                 <input type="text" th:field="*{breed}" id="breed" class="form-control" aria-describedby="inputBreed"
                     required>
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" name="idCliente">
+                    <option th:each="cliente : ${#servletContext.getAttribute('clientes')}"
+                        th:value="${cliente.id}" th:text="${cliente.nombre}">
+                    </option>
+                </select>
             </div>
 
             <button type="submit" class="btn btn-success">Agregar</button>
