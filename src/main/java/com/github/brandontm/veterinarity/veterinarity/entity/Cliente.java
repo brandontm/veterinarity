@@ -1,5 +1,8 @@
 package com.github.brandontm.veterinarity.veterinarity.entity;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Cliente {
     private Integer id;
     private String nombre;
@@ -10,7 +13,30 @@ public class Cliente {
     private String colonia;
     private String calle;
     private short numeroCasa;
+    private List<Pet> pets;
     private Integer idDomicilio;
+
+    public Cliente(String nombre, String apellidoPaterno, String apellidoMaterno, String telefono,
+    String celular, String colonia, String calle, short numeroCasa) {
+        this.nombre = nombre;
+        this.apellidoPaterno = apellidoPaterno;
+        this.apellidoMaterno = apellidoMaterno;
+        this.telefono = telefono;
+
+        this.pets = new ArrayList<Pet>();
+        Pet pet = new Pet();
+        pet.setName("Robi");
+        pet.setSex("Macho");
+        this.pets.add(pet);
+    }
+
+    public Cliente() {
+        this.pets = new ArrayList<Pet>();
+        Pet pet = new Pet();
+        pet.setName("Robi");
+        pet.setSex("Macho");
+        this.pets.add(pet);
+    }
 
     public Integer getId() {
         return id;
@@ -90,6 +116,14 @@ public class Cliente {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
     }
 
     
