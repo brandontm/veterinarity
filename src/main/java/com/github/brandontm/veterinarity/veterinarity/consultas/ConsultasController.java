@@ -20,20 +20,20 @@ public class ConsultasController {
     ServletContext servletContext;
 
 	@GetMapping("/consulta")
-	public String clientes() {
-        List<Consulta> clientes = (List<Consulta>) servletContext.getAttribute("consultas");
-        if (clientes == null)
-            clientes = new ArrayList<Consulta>();
+	public String consultas() {
+        List<Consulta> consultas = (List<Consulta>) servletContext.getAttribute("consultas");
+        if (consultas == null)
+            consultas = new ArrayList<Consulta>();
         
 
-        servletContext.setAttribute("consultas", clientes);
+        servletContext.setAttribute("consultas", consultas);
 
 		return "consultas";
     }
     
     @GetMapping("/consulta/agregar")
     public String agregarConsultaForm(Model model) {
-        model.addAttribute("consultas", new Consulta());
+        model.addAttribute("consulta", new Consulta());
         return "agregar_consulta";
 	}
 	

@@ -4,13 +4,41 @@
 <head>
     <title>Consultas</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .item {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+        }
+
+        .observacion {
+            color: grey;
+            font-size: 22px;
+        }
+    </style>
 </head>
 
 <body>
     <div th:replace="@{/fragments/fragments.html} :: header"></div>
-
+    <h1 style="text-align: center;">Consultas</h1>
     <div class="container">
         <!-- <p th:text="${#servletContext.getAttribute('pets').get(0).name}"></p> -->
+        <span th:if="${#servletContext.getAttribute('consultas').empty}">
+            No se encontraron consultas
+        </span>
+        <div class="row">
+            <span class="col-md-3" th:each="consulta : ${#servletContext.getAttribute('consultas')}">
+
+                <div class="item">
+                    <img src="https://ciudadtrendy.mx/wp-content/uploads/2020/08/5-beneficios-de-adoptar-perro-criollo.jpg" style="width:100%">
+                    <h1>Nombre Paciente</h1>
+                    <p class="observacion"><span th:text="${consulta.observaciones}"></span></p>
+                    <p><span th:text="${consulta.diagnostico}"></span></p>
+                </div>
+            </span>
+        </div>
     </div>
 
     <div th:replace="@{/fragments/fragments.html} :: footer"></div>

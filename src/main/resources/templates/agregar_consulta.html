@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Consulta</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <div th:substituteby="fragments/fragments.html :: header"></div>
+
+    <div class="container">
+        <h1>Datos de consulta</h1>
+
+        <form th:action="@{/consulta/agregar}" th:object="${consulta}" method="POST">
+
+            <div class="form-group">
+                <label for="observaciones">Observaciones</label>
+                <textarea th:field="*{observaciones}" class="form-control" id="observaciones" 
+                rows="3" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="diagnostico">Diagnóstico</label>
+                <textarea th:field="*{diagnostico}" class="form-control" id="diagnostico" 
+                rows="3" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </form>
+    </div>
+
+    <div th:substituteby="fragments/fragments.html :: footer"></div>
+</body>
+
+</html>
