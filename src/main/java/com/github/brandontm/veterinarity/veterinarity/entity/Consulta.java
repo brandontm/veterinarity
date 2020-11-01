@@ -1,12 +1,15 @@
 package com.github.brandontm.veterinarity.veterinarity.entity;
 
-import java.util.Date;
+import java.time.LocalDate;
+
+import org.springframework.format.annotation.DateTimeFormat;
 
 public class Consulta {
     private Integer id;
     private Integer idPaciente;
     private Integer idExamenFisico;
-    private Date fecConsulta;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+    private LocalDate fecConsulta;
     private String observaciones;
     private String diagnostico;
 
@@ -30,11 +33,11 @@ public class Consulta {
         this.observaciones = observaciones;
     }
 
-    public Date getFecConsulta() {
+    public LocalDate getFecConsulta() {
         return fecConsulta;
     }
 
-    public void setFecConsulta(Date fecConsulta) {
+    public void setFecConsulta(LocalDate fecConsulta) {
         this.fecConsulta = fecConsulta;
     }
 
@@ -57,7 +60,6 @@ public class Consulta {
     public void setId(Integer id) {
         this.id = id;
     }
-
 
     // other fields, getters and setters
 }

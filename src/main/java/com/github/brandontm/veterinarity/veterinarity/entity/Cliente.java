@@ -16,26 +16,18 @@ public class Cliente {
     private List<Pet> pets;
     private Integer idDomicilio;
 
-    public Cliente(String nombre, String apellidoPaterno, String apellidoMaterno, String telefono,
-    String celular, String colonia, String calle, short numeroCasa) {
+    public Cliente(String nombre, String apellidoPaterno, String apellidoMaterno, String telefono, String celular,
+            String colonia, String calle, short numeroCasa) {
         this.nombre = nombre;
         this.apellidoPaterno = apellidoPaterno;
         this.apellidoMaterno = apellidoMaterno;
         this.telefono = telefono;
 
         this.pets = new ArrayList<Pet>();
-        Pet pet = new Pet();
-        pet.setName("Robi");
-        pet.setSex("Macho");
-        this.pets.add(pet);
     }
 
     public Cliente() {
         this.pets = new ArrayList<Pet>();
-        Pet pet = new Pet();
-        pet.setName("Robi");
-        pet.setSex("Macho");
-        this.pets.add(pet);
     }
 
     public Integer getId() {
@@ -125,9 +117,6 @@ public class Cliente {
     public void setPets(List<Pet> pets) {
         this.pets = pets;
     }
-
-    
-
 
     // other fields, getters and setters
 }
