@@ -27,16 +27,22 @@
         <span th:if="${#servletContext.getAttribute('consultas').empty}">
             No se encontraron consultas
         </span>
-        <div class="row">
-            <span class="col-md-3" th:each="consulta : ${#servletContext.getAttribute('consultas')}">
-
-                <div class="item">
-                    <img src="https://ciudadtrendy.mx/wp-content/uploads/2020/08/5-beneficios-de-adoptar-perro-criollo.jpg" style="width:100%">
-                    <h1 th:text="${#servletContext.getAttribute('pets')[__${consulta.idPaciente - 1}__].name}"></h1>
-                    <p class="observacion"><span th:text="${consulta.observaciones}"></span></p>
-                    <p><span th:text="${consulta.diagnostico}"></span></p>
+        <div class="row row-cols-1 row-cols-md-3">
+            <th:block class="col mb-4" th:each="consulta : ${#servletContext.getAttribute('consultas')}">
+                <div class="col mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header">
+                            <th:block th:text="${#temporals.format(consulta.fecConsulta, 'dd-MM-yyyy')}"></th:block>
+                        </div>
+                        <img class="card-img-top" src="https://ciudadtrendy.mx/wp-content/uploads/2020/08/5-beneficios-de-adoptar-perro-criollo.jpg">
+                        <div class="card-body">
+                            <h1 class="card-title" th:text="${#servletContext.getAttribute('pets')[__${consulta.idPaciente - 1}__].name}"></h1>
+                            <p class="observacion"><span th:text="${consulta.observaciones}"></span></p>
+                            <p><span th:text="${consulta.diagnostico}"></span></p>
+                        </div>
+                    </div>
                 </div>
-            </span>
+            </th:block>
         </div>
     </div>
 
