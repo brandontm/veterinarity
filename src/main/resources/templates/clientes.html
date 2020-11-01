@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Clientes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <div th:substituteby="fragments/fragments.html :: header"></div>
+
+    <h1 style="text-align: center;">Clientes</h1>
+    <div class="container">
+        <!-- <p th:text="${#servletContext.getAttribute('clientes').get(0).nombre}"></p> -->
+        <div class="table-responsive">
+            <table class="table table-striped center">
+                <thead>
+                    <tr style="text-align: center;">
+                        <span th:if="!${#servletContext.getAttribute('clientes').empty}">
+                            <th scope="col"> Nombre </th>
+                            <th scope="col"> Apellido paterno </th>
+                            <th scope="col"> Apellido materno </th>
+                            <th scope="col"> Teléfono </th>
+                            <th scope="col"> Celular </th>
+                            <th scope="col"> Domicilio </th>
+                            <th scope="col"> Mascota(s) </th>
+                        </span>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${#servletContext.getAttribute('clientes').empty}">
+                        <td colspan="6" style="text-align: center;"> No se encontraron clientes </td>
+                    </tr>
+                    <tr th:each="cliente : ${#servletContext.getAttribute('clientes')}" style="text-align: center;">
+                        <td><span th:text="${cliente.nombre}"> Nombre </span></td>
+                        <td><span th:text="${cliente.apellidoPaterno}"> Apellido paterno </span></td>
+                        <td><span th:text="${cliente.apellidoMaterno}"> Apellido materno </span></td>
+                        <td><span th:text="${cliente.telefono}"> Teléfono </span></td>
+                        <td><span th:text="${cliente.celular}"> Celular </span></td>
+                        <td><span th:text="${cliente.colonia}"> Colonia </span>,
+                            <span th:text="${cliente.calle}"> Calle </span>
+                            #<span th:text="${cliente.numeroCasa}"> Numero de casa </span></td>
+                        <td><span th:each="pet : ${cliente.pets}">
+                            <span th:text="${pet.name}"></span>
+                        </span> </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div th:insert="fragments/fragments.html :: footer"></div>
+</body>
+
+</html>
