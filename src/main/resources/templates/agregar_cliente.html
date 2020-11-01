@@ -8,60 +8,60 @@
 
 <body>
     <div th:replace="fragments/fragments.html :: header"></div>
-    
+
     <div class="container">
         <h1>Datos de cliente</h1>
         <form th:action="@{/cliente/agregar}" th:object="${cliente}" method="POST">
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="nombre">Nombre</label>
-                <input th:field="*{nombre}" type="text" class="form-control" id="nombre" placeholder="Ingrese nombre"
-                    maxlength="30" required>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="nombre">Nombre</label>
+                    <input th:field="*{nombre}" type="text" class="form-control" id="nombre"
+                        placeholder="Ingrese nombre" maxlength="30" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="apellidoPaterno">Apellido paterno</label>
+                    <input th:field="*{apellidoPaterno}" type="text" class="form-control" id="apellidoPaterno"
+                        placeholder="Ingrese apellido paterno" maxlength="20">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="apellidoMaterno">Apellido materno</label>
+                    <input th:field="*{apellidoMaterno}" type="text" class="form-control" id="apellidoMaterno"
+                        placeholder="Ingrese apellido materno" maxlength="20">
+                </div>
             </div>
-            <div class="form-group col-md-4">
-                <label for="apellidoPaterno">Apellido paterno</label>
-                <input th:field="*{apellidoPaterno}" type="text" class="form-control" id="apellidoPaterno" placeholder="Ingrese apellido paterno"
-                maxlength="20">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="colonia">Colonia</label>
+                    <input th:field="*{colonia}" type="text" class="form-control" id="colonia"
+                        placeholder="Ingrese colonia" maxlength="20">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="calle">Calle</label>
+                    <input th:field="*{calle}" type="text" class="form-control" id="calle" placeholder="Ingrese calle"
+                        maxlength="20">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="numeroCasa">Número de casa</label>
+                    <input th:field="*{numeroCasa}" type="number" class="form-control" id="numeroCasa"
+                        placeholder="Ingrese número de casa" min="999" max="999999">
+                </div>
             </div>
-            <div class="form-group col-md-4">
-                <label for="apellidoMaterno">Apellido materno</label>
-                <input th:field="*{apellidoMaterno}" type="text" class="form-control" id="apellidoMaterno" placeholder="Ingrese apellido materno"
-                maxlength="20">
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <label for="telefono">Teléfono</label>
+                    <input th:field="*{telefono}" type="number" class="form-control" id="telefono"
+                        placeholder="Ingrese teléfono" min="999999999" max="9999999999">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="celular">Celular</label>
+                    <input th:field="*{celular}" type="number" class="form-control" id="celular"
+                        placeholder="Ingrese Celular" min="999999999" max="9999999999">
+                </div>
             </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="colonia">Colonia</label>
-                <input th:field="*{colonia}" type="text" class="form-control" id="colonia" placeholder="Ingrese colonia"
-                maxlength="20">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="calle">Calle</label>
-                <input th:field="*{calle}" type="text" class="form-control" id="calle" placeholder="Ingrese calle"
-                maxlength="20">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="numeroCasa">Número de casa</label>
-                <input th:field="*{numeroCasa}" type="number" class="form-control"  id="numeroCasa" placeholder="Ingrese número de casa"
-                min="9999" max="999999">
-            </div>
-        </div>
-        <div class="form-row">
-            <div class="form-group col-md-4">
-                <label for="telefono">Teléfono</label>
-                <input th:field="*{telefono}" type="number" class="form-control" id="telefono" placeholder="Ingrese teléfono"
-                min="9999999999" max="9999999999">
-            </div>
-            <div class="form-group col-md-4">
-                <label for="celular">Celular</label>
-                <input th:field="*{celular}" type="number" class="form-control" id="celular" placeholder="Ingrese Celular"
-                min="9999999999" max="9999999999">
-            </div>
-        </div>
-        <button type="submit" class="btn btn-success">Agregar</button>
-    </form>
-</div>
-<div th:replace="fragments/fragments.html :: footer"></div>
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </form>
+    </div>
+    <div th:replace="fragments/fragments.html :: footer"></div>
 </body>
 
 </html>
