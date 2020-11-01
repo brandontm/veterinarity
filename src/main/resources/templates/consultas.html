@@ -4,13 +4,46 @@
 <head>
     <title>Consultas</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style>
+        .item {
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+            font-family: arial;
+        }
+
+        .observacion {
+            color: grey;
+            font-size: 22px;
+        }
+    </style>
 </head>
 
 <body>
     <div th:replace="@{/fragments/fragments.html} :: header"></div>
-
+    <h1 style="text-align: center;">Consultas</h1>
     <div class="container">
-        <!-- <p th:text="${#servletContext.getAttribute('pets').get(0).name}"></p> -->
+        <span th:if="${#servletContext.getAttribute('consultas').empty}">
+            No se encontraron consultas
+        </span>
+        <div class="row row-cols-1 row-cols-md-3">
+            <th:block class="col mb-4" th:each="consulta : ${#servletContext.getAttribute('consultas')}">
+                <div class="col mb-4">
+                    <div class="card h-100 shadow-sm">
+                        <div class="card-header">
+                            <th:block th:text="${#temporals.format(consulta.fecConsulta, 'dd-MM-yyyy')}"></th:block>
+                        </div>
+                        <img class="card-img-top" src="https://ciudadtrendy.mx/wp-content/uploads/2020/08/5-beneficios-de-adoptar-perro-criollo.jpg">
+                        <div class="card-body">
+                            <h1 class="card-title" th:text="${#servletContext.getAttribute('pets')[__${consulta.idPaciente - 1}__].name}"></h1>
+                            <p class="observacion"><span th:text="${consulta.observaciones}"></span></p>
+                            <p><span th:text="${consulta.diagnostico}"></span></p>
+                        </div>
+                    </div>
+                </div>
+            </th:block>
+        </div>
     </div>
 
     <div th:replace="@{/fragments/fragments.html} :: footer"></div>

@@ -40,9 +40,12 @@
                         <td><span th:text="${cliente.colonia}"> Colonia </span>,
                             <span th:text="${cliente.calle}"> Calle </span>
                             #<span th:text="${cliente.numeroCasa}"> Numero de casa </span></td>
-                        <td><span th:each="pet : ${cliente.pets}">
-                            <span th:text="${pet.name}"></span>
-                        </span> </td>
+                        <td><th:block th:each="pet : ${cliente.pets}">
+                            <!--<p class="m-0 p-0" th:text="${pet.name}"></p>-->
+                            <p class="m-0 p-0">
+                                <a th:text="${pet.name}" th:href="@{|/consulta/agregar/${pet.id}|}"></a>
+                            </p>
+                        </td>
                     </tr>
                 </tbody>
             </table>
