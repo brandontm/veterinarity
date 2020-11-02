@@ -14,7 +14,7 @@ public class HomeController {
     @Autowired
     ServletContext servletContext;
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home() {
         List<Cliente> clientes = (List<Cliente>) servletContext.getAttribute("clientes");
         if (clientes == null)
