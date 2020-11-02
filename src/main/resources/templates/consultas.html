@@ -21,7 +21,7 @@
 </head>
 
 <body>
-    <div th:replace="@{/fragments/fragments.html} :: header"></div>
+    <div th:replace="@{fragments/fragments.html} :: header"></div>
     <h1 style="text-align: center;">Consultas</h1>
     <div class="container">
         <span th:if="${#servletContext.getAttribute('consultas').empty}">
@@ -46,7 +46,7 @@
         </div>
     </div>
 
-    <div th:replace="@{/fragments/fragments.html} :: footer"></div>
+    <div th:replace="@{fragments/fragments.html} :: footer"></div>
 </body>
 
 </html>

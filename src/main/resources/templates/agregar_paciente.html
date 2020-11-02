@@ -12,7 +12,7 @@
     <div class="container">
         <h1>Datos de mascota</h1>
 
-        <form th:action="@{/paciente/agregar}" th:object="${pet}" method="POST">
+        <form th:action="@{paciente/agregar}" th:object="${pet}" method="POST">
             <div class="form-group">
                 <label for="inputName">Nombre</label>
                 <input type="text" th:field="*{name}" id="name" class="form-control" aria-describedby="inputName"
