@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Pacientes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <div th:replace="fragments/fragments.html :: header"></div>
+
+    <div class="container">
+        <h1>Datos de mascota</h1>
+
+        <form th:action="@{/paciente/agregar}" th:object="${pet}" method="POST">
+            <div class="form-group">
+                <label for="inputName">Nombre</label>
+                <input type="text" th:field="*{name}" id="name" class="form-control" aria-describedby="inputName"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <label>Sexo</label><br>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" th:field="*{sex}" th:value="macho" type="radio"
+                        name="inlineRadioOptions" id="optMale" value="macho">
+                    <label class="form-check-label" for="optMale">Macho</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" th:field="*{sex}" th:value="hembra" type="radio"
+                        name="inlineRadioOptions" id="optFemale" value="hembra">
+                    <label class="form-check-label" for="optFemale">Hembra</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputBirthdate">Fecha de nacimiento</label>
+                <input type="date" th:field="*{birthdate}" id="birthdate" class="form-control"
+                    aria-describedby="inputBirthdate" required>
+            </div>
+
+            <div class="form-group">
+                <label for="inputBreed">Raza</label>
+                <input type="text" th:field="*{breed}" id="breed" class="form-control" aria-describedby="inputBreed"
+                    required>
+            </div>
+
+            <div class="form-group">
+                <select class="form-control" name="idCliente" required>
+                    <option th:each="cliente : ${#servletContext.getAttribute('clientes')}"
+                        th:value="${cliente.id}" th:text="${cliente.nombre}">
+                    </option>
+                </select>
+            </div>
+
+            <button type="submit" class="btn btn-success">Agregar</button>
+        </form>
+    </div>
+
+    <div th:replace="fragments/fragments.html :: footer"></div>
+</body>
+
+</html>

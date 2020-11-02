@@ -1,0 +1,48 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Pacientes</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <div th:replace="@{/fragments/fragments.html} :: header"></div>
+
+    <div class="container">
+        <h1 class="text-center">Mascotas</h1>
+        <div class="table-responsive">
+            <table class="table table-striped center">
+                <thead>
+                    <tr style="text-align: center;">
+                        <span th:if="!${#servletContext.getAttribute('pets').empty}">
+                            <th scope="col">Id</th>
+                            <th scope="col">Dueño</th>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Raza</th>
+                            <th scope="col">Sexo</th>
+                            <th scope="col">Fecha de nacimiento</th>
+                        </span>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:if="${#servletContext.getAttribute('pets').empty}">
+                        <td colspan="6" style="text-align: center;">No se encontraron mascotas</td>
+                    </tr>
+                    <tr th:each="pet : ${#servletContext.getAttribute('pets')}" style="text-align: center;">
+                        <td th:text="${pet.id}"></td>
+                        <td></td>
+                        <td th:text="${pet.name}"></td>
+                        <td th:text="${pet.breed}"></td>
+                        <td th:text="${pet.sex}"></td>
+                        <td th:text="${pet.birthdate}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div th:replace="@{/fragments/fragments.html} :: footer"></div>
+</body>
+
+</html>
