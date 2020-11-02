@@ -47,7 +47,7 @@
             </div>
 
             <div class="form-group">
-                <select class="form-control" name="idCliente">
+                <select class="form-control" name="idCliente" required>
                     <option th:each="cliente : ${#servletContext.getAttribute('clientes')}"
                         th:value="${cliente.id}" th:text="${cliente.nombre}">
                     </option>
